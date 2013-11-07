@@ -1,4 +1,13 @@
-<% form_for @tweet do |f| %>
-    <%= f.text_field :status %>
-    <% f.submit %>
-<% end %>
+<h1>Forever Alone Twitter!</h1>
+<div id="tweets">
+
+  <%= form_for @tweet do |f| %>
+      <%= f.text_field :status %>
+      <%= f.submit 'Post Tweet!' %>
+  <% end %>
+
+  <% @tweets.each do |tweet| %>
+    <p class="tweet"><%= tweet.status %></p>
+  <% end %>
+
+</div>
