@@ -7,10 +7,13 @@ class TweetsController < ApplicationController
   def create
     @tweet = Tweet.new(params[:tweet])
     if @tweet.save
+      flash[:success] = 'Success!'
       redirect_to :action => :index
     else
-      render :action => :index
+      flash.now[:error] = 'Tweet length error!'
       @tweets = Tweet.order('id DESC')
+      render :action => :index
+
     end
   end
 end
